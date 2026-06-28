@@ -6,10 +6,7 @@ services:
     container_name: ecommerce
     build:
       context: .
-      dockerfile: dockerfile
-    # Cuando suban la imagen a Docker Hub pueden reemplazar
-    # build por:
-    # image: brigitteca/ecommerce:1.0
+      dockerfile: Dockerfile
 
     restart: always
 

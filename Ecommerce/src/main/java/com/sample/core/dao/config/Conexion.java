@@ -7,20 +7,20 @@ import java.util.logging.Logger;
 
 public class Conexion {
 
-    private static final Logger log =
-            Logger.getLogger(Conexion.class.getName());
+    private static final Logger log
+            = Logger.getLogger(Conexion.class.getName());
 
-    private static final String HOST = "localhost";
+    private static final String HOST = "db";
     private static final String URL = "jdbc:mysql://" + HOST + ":3306";
     private static final String DBNAME = "ecommercedb";
 
-    private static final String TIMEZONE = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private static final String TIMEZONE
+            = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 
-    private static final String USUARIO = "root";
-    private static final String PASSWORD = "";
-
+    private static final String USUARIO = "admin";
+    private static final String PASSWORD = "admin";
     private static Conexion instance;
 
     private Connection conn;
