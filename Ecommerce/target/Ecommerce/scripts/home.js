@@ -34,7 +34,6 @@ $(document).ready(function () {
 
     });
 
-    // Evento para todos los botones Agregar
     $(document).on("click", ".btnAgregarCarrito", function () {
 
         agregarCarrito(
@@ -111,7 +110,6 @@ function filtrarPrecio(minimo, maximo) {
 
         type: "POST",
         url: contextPath + "/producto",
-
         data: {
             accion: "precio",
             minimo: minimo,
@@ -136,7 +134,6 @@ function filtrarFecha(desde, hasta) {
 
         type: "POST",
         url: contextPath + "/producto",
-
         data: {
             accion: "fecha",
             desde: desde,
@@ -254,21 +251,13 @@ function agregarCarrito(idProducto, precio, titulo, urlImagen) {
     $.ajax({
 
         type: "POST",
-
         url: contextPath + "/carrito",
-
         data: {
-
             accion: "agregar",
-
             idProducto: idProducto,
-
             cantidad: 1,
-
             precio: precio,
-
             titulo: titulo,
-
             urlImagen: urlImagen
 
         },
@@ -280,13 +269,9 @@ function agregarCarrito(idProducto, precio, titulo, urlImagen) {
             Swal.fire({
 
                 icon: "success",
-
                 title: "Producto agregado",
-
                 text: "El producto fue agregado correctamente.",
-
                 timer: 1500,
-
                 showConfirmButton: false
 
             });
@@ -300,11 +285,8 @@ function agregarCarrito(idProducto, precio, titulo, urlImagen) {
             Swal.fire({
 
                 icon: "error",
-
                 title: "Error",
-
                 text: "No fue posible agregar el producto."
-
             });
 
         }

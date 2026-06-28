@@ -6,12 +6,6 @@ $(document).ready(function () {
 
 function cargarDashboard() {
 
-    /*
-     * Datos de demostración.
-     * Cuando el sistema tenga estadísticas reales,
-     * solamente reemplazar estos valores.
-     */
-
     $("#totalProductos").text("125");
 
     $("#totalUsuarios").text("38");

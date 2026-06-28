@@ -67,11 +67,6 @@ function cargarDashboard() {
 
 function obtenerEstadisticas() {
 
-    /*
-       Cuando estén listos los Controllers
-       reemplazás estos números por AJAX.
-    */
-
     $("#cantProductos").text("25");
     $("#cantUsuarios").text("14");
     $("#cantCompras").text("31");

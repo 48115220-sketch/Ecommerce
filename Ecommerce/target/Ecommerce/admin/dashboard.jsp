@@ -1,322 +1,296 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
 
-<head>
+    <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Dashboard</title>
+        <title>Dashboard</title>
 
-<link rel="stylesheet"
-href="<%=request.getContextPath()%>/scripts/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/scripts/bootstrap/css/bootstrap.min.css">
 
-<link rel="stylesheet"
-href="<%=request.getContextPath()%>/css/Style.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/css/Style.css">
 
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-<script src="<%=request.getContextPath()%>/scripts/jquery/jquery.min.js"></script>
+        <script src="<%=request.getContextPath()%>/scripts/jquery/jquery.min.js"></script>
 
-<script>
+        <script>
 
-var contextPath="<%=request.getContextPath()%>";
+            var contextPath = "<%=request.getContextPath()%>";
 
-</script>
+        </script>
 
-<script src="<%=request.getContextPath()%>/scripts/dashboard.js"></script>
+        <script src="<%=request.getContextPath()%>/scripts/dashboard.js"></script>
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-<!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-light menu-principal shadow-sm">
 
-<nav class="navbar navbar-expand-lg navbar-light menu-principal shadow-sm">
+            <div class="container">
 
-<div class="container">
+                <a class="navbar-brand" href="<%=request.getContextPath()%>/admin/admin.jsp">
 
-<a class="navbar-brand"
-href="<%=request.getContextPath()%>/admin/admin.jsp">
+                    <img src="<%=request.getContextPath()%>/img/logo.png" class="logo-navbar">
 
-<img src="<%=request.getContextPath()%>/img/logo.png"
-class="logo-navbar">
+                </a>
 
-</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
 
-<button class="navbar-toggler"
-type="button"
-data-bs-toggle="collapse"
-data-bs-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
 
-<span class="navbar-toggler-icon"></span>
+                </button>
 
-</button>
+                <div class="collapse navbar-collapse" id="navbar">
 
-<div class="collapse navbar-collapse"
-id="navbar">
+                    <ul class="navbar-nav ms-auto">
 
-<ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
 
-<li class="nav-item">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/admin.jsp">
 
-<a class="nav-link"
-href="<%=request.getContextPath()%>/admin/admin.jsp">
+                                Panel
 
-Panel
+                            </a>
 
-</a>
+                        </li>
 
-</li>
+                        <li class="nav-item">
 
-<li class="nav-item">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/productosAdmin.jsp">
 
-<a class="nav-link"
-href="<%=request.getContextPath()%>/admin/productosAdmin.jsp">
+                                Productos
 
-Productos
+                            </a>
 
-</a>
+                        </li>
 
-</li>
+                        <li class="nav-item">
 
-<li class="nav-item">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/usuariosAdmin.jsp">
 
-<a class="nav-link"
-href="<%=request.getContextPath()%>/admin/usuariosAdmin.jsp">
+                                Usuarios
 
-Usuarios
+                            </a>
 
-</a>
+                        </li>
 
-</li>
+                        <li class="nav-item">
 
-<li class="nav-item">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/comprasAdmin.jsp">
 
-<a class="nav-link"
-href="<%=request.getContextPath()%>/admin/comprasAdmin.jsp">
+                                Compras
 
-Compras
+                            </a>
 
-</a>
+                        </li>
 
-</li>
+                        <li class="nav-item">
 
-<li class="nav-item">
+                            <a class="nav-link active" href="#">
 
-<a class="nav-link active"
-href="#">
+                                Dashboard
 
-Dashboard
+                            </a>
 
-</a>
+                        </li>
 
-</li>
+                    </ul>
 
-</ul>
+                </div>
 
-</div>
+            </div>
 
-</div>
+        </nav>
 
-</nav>
+        <section class="hero">
 
-<!-- HERO -->
+            <div class="container text-center">
 
-<section class="hero">
+                <h1>
 
-<div class="container text-center">
+                    <i class="bi bi-speedometer2"></i>
 
-<h1>
+                    Dashboard
 
-<i class="bi bi-speedometer2"></i>
+                </h1>
 
-Dashboard
+                <p>
 
-</h1>
+                    Resumen general del sistema Ecommerce.
 
-<p>
+                </p>
 
-Resumen general del sistema Ecommerce.
+            </div>
 
-</p>
+        </section>
 
-</div>
+        <div class="container my-5">
 
-</section>
+            <div class="row g-4">
 
-<!-- TARJETAS -->
+                <div class="col-md-3">
 
-<div class="container my-5">
+                    <div class="card shadow text-center h-100">
 
-<div class="row g-4">
+                        <div class="card-body">
 
-<div class="col-md-3">
+                            <i class="bi bi-box-seam display-3 text-success"></i>
 
-<div class="card shadow text-center h-100">
+                            <h5 class="mt-3">
 
-<div class="card-body">
+                                Productos
 
-<i class="bi bi-box-seam display-3 text-success"></i>
+                            </h5>
 
-<h5 class="mt-3">
+                            <h2 id="totalProductos">
 
-Productos
+                                0
 
-</h5>
+                            </h2>
 
-<h2 id="totalProductos">
+                        </div>
 
-0
+                    </div>
 
-</h2>
+                </div>
 
-</div>
+                <div class="col-md-3">
 
-</div>
+                    <div class="card shadow text-center h-100">
 
-</div>
+                        <div class="card-body">
 
-<div class="col-md-3">
+                            <i class="bi bi-people-fill display-3 text-primary"></i>
 
-<div class="card shadow text-center h-100">
+                            <h5 class="mt-3">
 
-<div class="card-body">
+                                Usuarios
 
-<i class="bi bi-people-fill display-3 text-primary"></i>
+                            </h5>
 
-<h5 class="mt-3">
+                            <h2 id="totalUsuarios">
 
-Usuarios
+                                0
 
-</h5>
+                            </h2>
 
-<h2 id="totalUsuarios">
+                        </div>
 
-0
+                    </div>
 
-</h2>
+                </div>
 
-</div>
+                <div class="col-md-3">
 
-</div>
+                    <div class="card shadow text-center h-100">
 
-</div>
+                        <div class="card-body">
 
-<div class="col-md-3">
+                            <i class="bi bi-cart-check-fill display-3 text-warning"></i>
 
-<div class="card shadow text-center h-100">
+                            <h5 class="mt-3">
 
-<div class="card-body">
+                                Compras
 
-<i class="bi bi-cart-check-fill display-3 text-warning"></i>
+                            </h5>
 
-<h5 class="mt-3">
+                            <h2 id="totalCompras">
 
-Compras
+                                0
 
-</h5>
+                            </h2>
 
-<h2 id="totalCompras">
+                        </div>
 
-0
+                    </div>
 
-</h2>
+                </div>
 
-</div>
+                <div class="col-md-3">
 
-</div>
+                    <div class="card shadow text-center h-100">
 
-</div>
+                        <div class="card-body">
 
-<div class="col-md-3">
+                            <i class="bi bi-currency-dollar display-3 text-danger"></i>
 
-<div class="card shadow text-center h-100">
+                            <h5 class="mt-3">
 
-<div class="card-body">
+                                Ventas
 
-<i class="bi bi-currency-dollar display-3 text-danger"></i>
+                            </h5>
 
-<h5 class="mt-3">
+                            <h2 id="totalVentas">
 
-Ventas
+                                $0
 
-</h5>
+                            </h2>
 
-<h2 id="totalVentas">
+                        </div>
 
-$0
+                    </div>
 
-</h2>
+                </div>
 
-</div>
+            </div>
 
-</div>
+            <div class="card shadow mt-5">
 
-</div>
+                <div class="card-header text-white" style="background:#556a32;">
 
-</div>
+                    <h4 class="mb-0">
 
-<!-- MENSAJE -->
+                        <i class="bi bi-bar-chart-line-fill"></i>
 
-<div class="card shadow mt-5">
+                        Información General
 
-<div class="card-header text-white"
-style="background:#556a32;">
+                    </h4>
 
-<h4 class="mb-0">
+                </div>
 
-<i class="bi bi-bar-chart-line-fill"></i>
+                <div class="card-body text-center">
 
-Información General
+                    <p class="fs-5">
 
-</h4>
+                        Este panel muestra un resumen general del estado del sistema.
 
-</div>
+                    </p>
 
-<div class="card-body text-center">
+                    <p class="text-muted">
 
-<p class="fs-5">
+                        En futuras versiones podrá visualizar estadísticas detalladas,
+                        productos más vendidos, ingresos y comportamiento de los usuarios.
 
-Este panel muestra un resumen general del estado del sistema.
+                    </p>
 
-</p>
+                </div>
 
-<p class="text-muted">
+            </div>
 
-En futuras versiones podrá visualizar estadísticas detalladas,
-productos más vendidos, ingresos y comportamiento de los usuarios.
+        </div>
 
-</p>
+        <footer class="footer">
 
-</div>
+            <div class="container text-center">
 
-</div>
+                <p class="mb-0">
 
-</div>
+                    © 2026 Ecommerce - Administración
 
-<!-- FOOTER -->
+                </p>
 
-<footer class="footer">
+            </div>
 
-<div class="container text-center">
+        </footer>
 
-<p class="mb-0">
+        <script src="<%=request.getContextPath()%>/scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-© 2026 Ecommerce - Administración
+    </body>
 
-</p>
-
-</div>
-
-</footer>
-
-<script src="<%=request.getContextPath()%>/scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
+    </html>

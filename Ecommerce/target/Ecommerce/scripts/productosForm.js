@@ -19,9 +19,7 @@ function cargarProducto(idProducto) {
     $.ajax({
 
         type: "POST",
-
         url: contextPath + "/producto",
-
         data: {
 
             accion: "obtener",
@@ -41,7 +39,6 @@ function cargarProducto(idProducto) {
             $("#stock").val(producto.stock);
 
             if (producto.fechaPublic != null) {
-
                 let fecha = producto.fechaPublic;
 
                 if (fecha.length >= 10) {
@@ -131,21 +128,13 @@ function guardarProducto() {
         data: {
 
             accion: accion,
-
             idProducto: $("#idProducto").val(),
-
             titulo: $("#titulo").val(),
-
             descripcion: $("#descripcion").val(),
-
             caracteristicas: $("#caracteristicas").val(),
-
             precio: $("#precio").val(),
-
             stock: $("#stock").val(),
-
             fechaPublic: $("#fechaPublic").val(),
-
             urlImagen: $("#urlImagen").val()
 
         },
@@ -155,13 +144,9 @@ function guardarProducto() {
         success: function (mensaje) {
 
             Swal.fire({
-
                 icon: "success",
-
                 title: "Correcto",
-
                 text: mensaje,
-
                 confirmButtonColor: "#556a32"
 
             }).then(function () {
@@ -184,9 +169,7 @@ function guardarProducto() {
             Swal.fire({
 
                 icon: "error",
-
                 title: "Error",
-
                 text: mensaje
 
             });

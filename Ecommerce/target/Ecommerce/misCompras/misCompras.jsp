@@ -1,223 +1,204 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
 
-<head>
+    <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Mis Compras</title>
+        <title>Mis Compras</title>
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/scripts/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/Style.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/scripts/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/css/Style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-<script src="<%=request.getContextPath()%>/scripts/jquery/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="<%=request.getContextPath()%>/scripts/jquery/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
-    var contextPath = "<%=request.getContextPath()%>";
-</script>
+        <script>
+            var contextPath = "<%=request.getContextPath()%>";
+        </script>
 
-<script src="<%=request.getContextPath()%>/scripts/misCompras.js"></script>
+        <script src="<%=request.getContextPath()%>/scripts/misCompras.js"></script>
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-<!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-light menu-principal shadow-sm">
 
-<nav class="navbar navbar-expand-lg navbar-light menu-principal shadow-sm">
+            <div class="container">
 
-    <div class="container">
+                <a class="navbar-brand" href="<%=request.getContextPath()%>/home/home.jsp">
 
-        <a class="navbar-brand"
-           href="<%=request.getContextPath()%>/home/home.jsp">
+                    <img src="<%=request.getContextPath()%>/img/logo.png" class="logo-navbar" alt="Logo">
 
-            <img src="<%=request.getContextPath()%>/img/logo.png"
-                 class="logo-navbar"
-                 alt="Logo">
+                </a>
 
-        </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
 
-        <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
 
-            <span class="navbar-toggler-icon"></span>
+                </button>
 
-        </button>
+                <div class="collapse navbar-collapse" id="navbar">
 
-        <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav ms-auto">
 
-            <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
 
-                <li class="nav-item">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/home/home.jsp">
 
-                    <a class="nav-link"
-                       href="<%=request.getContextPath()%>/home/home.jsp">
+                                Inicio
 
-                        Inicio
+                            </a>
 
-                    </a>
+                        </li>
 
-                </li>
+                        <li class="nav-item">
 
-                <li class="nav-item">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/carrito/carrito.jsp">
 
-                    <a class="nav-link"
-                       href="<%=request.getContextPath()%>/carrito/carrito.jsp">
+                                <i class="bi bi-cart"></i>
+                                Mi carrito
 
-                        <i class="bi bi-cart"></i>
-                        Mi carrito
+                            </a>
 
-                    </a>
+                        </li>
 
-                </li>
+                        <li class="nav-item">
 
-                <li class="nav-item">
+                            <a class="nav-link active" href="#">
 
-                    <a class="nav-link active"
-                       href="#">
+                                <i class="bi bi-bag-check"></i>
+                                Mis compras
 
-                        <i class="bi bi-bag-check"></i>
-                        Mis compras
+                            </a>
 
-                    </a>
+                        </li>
 
-                </li>
+                    </ul>
 
-            </ul>
+                </div>
 
-        </div>
+            </div>
 
-    </div>
+        </nav>
 
-</nav>
+        <section class="hero">
 
-<!-- HERO -->
+            <div class="container text-center">
 
-<section class="hero">
+                <h1>
 
-    <div class="container text-center">
+                    <i class="bi bi-bag-check-fill"></i>
 
-        <h1>
+                    Mis Compras
 
-            <i class="bi bi-bag-check-fill"></i>
+                </h1>
 
-            Mis Compras
+                <p>
 
-        </h1>
+                    Consultá el historial completo de todas tus compras realizadas.
 
-        <p>
+                </p>
 
-            Consultá el historial completo de todas tus compras realizadas.
+            </div>
 
-        </p>
+        </section>
 
-    </div>
+        <div class="container mt-5 mb-5">
 
-</section>
+            <div class="card shadow-lg">
 
-<!-- CONTENIDO -->
+                <div class="card-header text-white" style="background:#556a32;">
 
-<div class="container mt-5 mb-5">
+                    <h4 class="mb-0">
 
-    <div class="card shadow-lg">
+                        Historial de Compras
 
-        <div class="card-header text-white"
-             style="background:#556a32;">
+                    </h4>
 
-            <h4 class="mb-0">
+                </div>
 
-                Historial de Compras
+                <div class="card-body">
 
-            </h4>
+                    <div class="table-responsive">
 
-        </div>
+                        <table class="table table-hover align-middle">
 
-        <div class="card-body">
+                            <thead class="table-success">
 
-            <div class="table-responsive">
+                                <tr>
 
-                <table class="table table-hover align-middle">
+                                    <th>ID Compra</th>
 
-  <thead class="table-success">
+                                    <th>Fecha</th>
 
-    <tr>
+                                    <th>Estado</th>
 
-        <th>ID Compra</th>
+                                    <th>Total</th>
 
-        <th>Fecha</th>
+                                    <th>Detalle</th>
 
-        <th>Estado</th>
+                                </tr>
 
-        <th>Total</th>
+                            </thead>
 
-        <th>Detalle</th>
+                            <tbody id="tablaCompras">
 
-    </tr>
+                                <tr>
 
-</thead>
+                                    <td colspan="5" class="text-center text-muted">
 
-                    <tbody id="tablaCompras">
+                                        Cargando compras...
 
-                        <tr>
+                                    </td>
 
-                            <td colspan="5" class="text-center text-muted">
+                                </tr>
 
-                                Cargando compras...
+                            </tbody>
 
-                            </td>
+                        </table>
 
-                        </tr>
+                    </div>
 
-                    </tbody>
+                </div>
 
-                </table>
+            </div>
+
+            <div class="text-center mt-4">
+
+                <a href="<%=request.getContextPath()%>/home/home.jsp" class="btn btn-secondary">
+
+                    <i class="bi bi-arrow-left-circle"></i>
+
+                    Volver al inicio
+
+                </a>
 
             </div>
 
         </div>
 
-    </div>
+        <footer class="footer">
 
-    <div class="text-center mt-4">
+            <div class="container text-center">
 
-        <a href="<%=request.getContextPath()%>/home/home.jsp"
-           class="btn btn-secondary">
+                <p class="mb-0">
 
-            <i class="bi bi-arrow-left-circle"></i>
+                    © 2026 Ecommerce | Todos los derechos reservados.
 
-            Volver al inicio
+                </p>
 
-        </a>
+            </div>
 
-    </div>
+        </footer>
 
-</div>
+        <script src="<%=request.getContextPath()%>/scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- FOOTER -->
+    </body>
 
-<footer class="footer">
-
-    <div class="container text-center">
-
-        <p class="mb-0">
-
-            © 2026 Ecommerce | Todos los derechos reservados.
-
-        </p>
-
-    </div>
-
-</footer>
-
-<script src="<%=request.getContextPath()%>/scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
+    </html>

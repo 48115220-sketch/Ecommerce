@@ -2,7 +2,6 @@ $(document).ready(function () {
 
     cargarCarrito();
 
-    // Vaciar carrito
     $("#btnVaciar").click(function () {
 
         Swal.fire({
@@ -21,9 +20,7 @@ $(document).ready(function () {
                 $.ajax({
 
                     type: "POST",
-
                     url: contextPath + "/carrito",
-
                     data: {
                         accion: "vaciar"
                     },
@@ -62,8 +59,6 @@ $(document).ready(function () {
 
     });
 
-
-    // Comprar
     $("#btnComprar").click(function () {
 
         let idUsuario = prompt("Ingrese el ID del usuario:");
@@ -88,13 +83,10 @@ $(document).ready(function () {
                 $.ajax({
 
                     type: "POST",
-
                     url: contextPath + "/compra",
-
                     data: {
 
                         accion: "registrar",
-
                         idUsuario: idUsuario
 
                     },
@@ -133,17 +125,12 @@ $(document).ready(function () {
 
 });
 
-
-//============================================
-
 function cargarCarrito() {
 
     $.ajax({
 
         type: "POST",
-
         url: contextPath + "/carrito",
-
         data: {
             accion: "listar"
         },
@@ -151,7 +138,6 @@ function cargarCarrito() {
         dataType: "json",
 
         success: function (carrito) {
-
             mostrarCarrito(carrito);
 
         },
@@ -169,9 +155,6 @@ function cargarCarrito() {
     });
 
 }
-
-
-//============================================
 
 function mostrarCarrito(carrito) {
 
@@ -256,9 +239,6 @@ function mostrarCarrito(carrito) {
 
 }
 
-
-//============================================
-
 function eliminarProducto(indice) {
 
     Swal.fire({
@@ -272,7 +252,6 @@ function eliminarProducto(indice) {
         showCancelButton: true,
 
         confirmButtonColor: "#556a32",
-
         cancelButtonColor: "#d33",
 
         confirmButtonText: "Eliminar",
@@ -286,13 +265,10 @@ function eliminarProducto(indice) {
             $.ajax({
 
                 type: "POST",
-
                 url: contextPath + "/carrito",
-
                 data: {
 
                     accion: "eliminar",
-
                     indice: indice
 
                 },
@@ -304,13 +280,9 @@ function eliminarProducto(indice) {
                     Swal.fire({
 
                         icon: "success",
-
                         title: "Producto eliminado",
-
                         timer: 1200,
-
                         showConfirmButton: false
-
                     });
 
                     cargarCarrito();
@@ -322,11 +294,8 @@ function eliminarProducto(indice) {
                     Swal.fire({
 
                         icon: "error",
-
                         title: "Error",
-
                         text: "No fue posible eliminar el producto."
-
                     });
 
                 }

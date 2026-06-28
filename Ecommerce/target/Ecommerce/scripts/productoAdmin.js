@@ -31,9 +31,7 @@ function listarProductos() {
     $.ajax({
 
         type: "POST",
-
         url: contextPath + "/producto",
-
         data: {
 
             accion: "listar"
@@ -43,7 +41,6 @@ function listarProductos() {
         dataType: "json",
 
         success: function (productos) {
-
             cargarTabla(productos);
 
         },
@@ -176,7 +173,6 @@ function eliminarProducto(idProducto) {
     Swal.fire({
 
         title: "¿Eliminar producto?",
-
         text: "Esta acción no podrá deshacerse.",
 
         icon: "warning",
@@ -184,7 +180,6 @@ function eliminarProducto(idProducto) {
         showCancelButton: true,
 
         confirmButtonColor: "#556a32",
-
         cancelButtonColor: "#d33",
 
         confirmButtonText: "Sí, eliminar",
@@ -213,11 +208,8 @@ function eliminarProducto(idProducto) {
                     Swal.fire({
 
                         icon: "success",
-
                         title: "Producto eliminado",
-
                         timer: 1500,
-
                         showConfirmButton: false
 
                     });
@@ -231,9 +223,7 @@ function eliminarProducto(idProducto) {
                     Swal.fire({
 
                         icon: "error",
-
                         title: "Error",
-
                         text: "No fue posible eliminar el producto."
 
                     });

@@ -1,310 +1,268 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
 
-<head>
+    <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Producto</title>
+        <title>Producto</title>
 
-<link rel="stylesheet"
-href="<%=request.getContextPath()%>/scripts/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/scripts/bootstrap/css/bootstrap.min.css">
 
-<link rel="stylesheet"
-href="<%=request.getContextPath()%>/css/Style.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/css/Style.css">
 
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-<script src="<%=request.getContextPath()%>/scripts/jquery/jquery.min.js"></script>
+        <script src="<%=request.getContextPath()%>/scripts/jquery/jquery.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
+        <script>
 
-var contextPath="<%=request.getContextPath()%>";
+            var contextPath = "<%=request.getContextPath()%>";
 
-</script>
+        </script>
 
-<script src="<%=request.getContextPath()%>/scripts/productoForm.js"></script>
+        <script src="<%=request.getContextPath()%>/scripts/productoForm.js"></script>
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-<nav class="navbar navbar-expand-lg navbar-light menu-principal shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light menu-principal shadow-sm">
 
-<div class="container">
+            <div class="container">
 
-<a class="navbar-brand"
-href="<%=request.getContextPath()%>/admin/admin.jsp">
+                <a class="navbar-brand" href="<%=request.getContextPath()%>/admin/admin.jsp">
 
-<img src="<%=request.getContextPath()%>/img/logo.png"
-class="logo-navbar">
+                    <img src="<%=request.getContextPath()%>/img/logo.png" class="logo-navbar">
 
-</a>
+                </a>
 
-<button class="navbar-toggler"
-type="button"
-data-bs-toggle="collapse"
-data-bs-target="#navbar">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
 
-<span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
 
-</button>
+                </button>
 
-<div class="collapse navbar-collapse"
-id="navbar">
+                <div class="collapse navbar-collapse" id="navbar">
 
-<ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto">
 
-<li class="nav-item">
-<a class="nav-link"
-href="<%=request.getContextPath()%>/admin/admin.jsp">
-Panel
-</a>
-</li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/admin.jsp">
+                                Panel
+                            </a>
+                        </li>
 
-<li class="nav-item">
-<a class="nav-link"
-href="<%=request.getContextPath()%>/admin/productosAdmin.jsp">
-Productos
-</a>
-</li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/productosAdmin.jsp">
+                                Productos
+                            </a>
+                        </li>
 
-<li class="nav-item">
-<a class="nav-link active" href="#">
-Producto
-</a>
-</li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                Producto
+                            </a>
+                        </li>
 
-</ul>
+                    </ul>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-</nav>
+        </nav>
 
-<section class="hero">
+        <section class="hero">
 
-<div class="container text-center">
+            <div class="container text-center">
 
-<h1>
+                <h1>
 
-<i class="bi bi-box-seam"></i>
+                    <i class="bi bi-box-seam"></i>
 
-Producto
+                    Producto
 
-</h1>
+                </h1>
 
-<p>
+                <p>
 
-Registrar o modificar un producto.
+                    Registrar o modificar un producto.
 
-</p>
+                </p>
 
-</div>
+            </div>
 
-</section>
+        </section>
 
-<div class="container my-5">
+        <div class="container my-5">
 
-<div class="card shadow-lg">
+            <div class="card shadow-lg">
 
-<div class="card-header text-white"
-style="background:#556a32;">
+                <div class="card-header text-white" style="background:#556a32;">
 
-<h4 class="mb-0">
+                    <h4 class="mb-0">
 
-<i class="bi bi-pencil-square"></i>
+                        <i class="bi bi-pencil-square"></i>
 
-Datos del Producto
+                        Datos del Producto
 
-</h4>
+                    </h4>
 
-</div>
+                </div>
 
-<div class="card-body">
+                <div class="card-body">
 
-<form id="frmProducto">
+                    <form id="frmProducto">
 
-<input
-type="hidden"
-id="idProducto">
+                        <input type="hidden" id="idProducto">
 
-<div class="row">
+                        <div class="row">
 
-<div class="col-md-6 mb-3">
+                            <div class="col-md-6 mb-3">
 
-<label class="form-label">
+                                <label class="form-label">
 
-Título
+                                    Título
 
-</label>
+                                </label>
 
-<input
-type="text"
-id="titulo"
-class="form-control">
+                                <input type="text" id="titulo" class="form-control">
 
-</div>
+                            </div>
 
-<div class="col-md-6 mb-3">
+                            <div class="col-md-6 mb-3">
 
-<label class="form-label">
+                                <label class="form-label">
 
-Precio
+                                    Precio
 
-</label>
+                                </label>
 
-<input
-type="number"
-step="0.01"
-id="precio"
-class="form-control">
+                                <input type="number" step="0.01" id="precio" class="form-control">
 
-</div>
+                            </div>
 
-</div>
+                        </div>
 
-<div class="mb-3">
+                        <div class="mb-3">
 
-<label class="form-label">
+                            <label class="form-label">
 
-Descripción
+                                Descripción
 
-</label>
+                            </label>
 
-<textarea
-id="descripcion"
-rows="4"
-class="form-control">
+                            <textarea id="descripcion" rows="4" class="form-control">
 
 </textarea>
 
-</div>
+                        </div>
 
-<div class="mb-3">
+                        <div class="mb-3">
 
-<label class="form-label">
+                            <label class="form-label">
 
-Características
+                                Características
 
-</label>
+                            </label>
 
-<textarea
-id="caracteristicas"
-rows="3"
-class="form-control">
+                            <textarea id="caracteristicas" rows="3" class="form-control">
 
 </textarea>
 
-</div>
+                        </div>
 
-<div class="row">
+                        <div class="row">
 
-<div class="col-md-6 mb-3">
+                            <div class="col-md-6 mb-3">
 
-<label class="form-label">
+                                <label class="form-label">
 
-Stock
+                                    Stock
 
-</label>
+                                </label>
 
-<input
-type="number"
-id="stock"
-class="form-control">
+                                <input type="number" id="stock" class="form-control">
 
-</div>
+                            </div>
 
-<div class="col-md-6 mb-3">
+                            <div class="col-md-6 mb-3">
 
-<label class="form-label">
+                                <label class="form-label">
 
-Fecha publicación
+                                    Fecha publicación
 
-</label>
+                                </label>
 
-<input
-type="date"
-id="fechaPublic"
-class="form-control">
+                                <input type="date" id="fechaPublic" class="form-control">
 
-</div>
+                            </div>
 
-</div>
+                        </div>
 
-<div class="mb-4">
+                        <div class="mb-4">
 
-<label class="form-label">
+                            <label class="form-label">
 
-URL Imagen
+                                URL Imagen
 
-</label>
+                            </label>
 
-<input
-type="text"
-id="urlImagen"
-class="form-control"
-placeholder="https://...">
+                            <input type="text" id="urlImagen" class="form-control" placeholder="https://...">
 
-</div>
+                        </div>
 
-<div class="text-center">
+                        <div class="text-center">
 
-<button
-type="button"
-id="btnGuardar"
-class="btn btn-success btn-lg me-3">
+                            <button type="button" id="btnGuardar" class="btn btn-success btn-lg me-3">
 
-<i class="bi bi-floppy"></i>
+                                <i class="bi bi-floppy"></i>
 
-Guardar
+                                Guardar
 
-</button>
+                            </button>
 
-<a
-href="<%=request.getContextPath()%>/admin/productosAdmin.jsp"
-class="btn btn-secondary btn-lg">
+                            <a href="<%=request.getContextPath()%>/admin/productosAdmin.jsp"
+                                class="btn btn-secondary btn-lg">
 
-<i class="bi bi-arrow-left-circle"></i>
+                                <i class="bi bi-arrow-left-circle"></i>
 
-Cancelar
+                                Cancelar
 
-</a>
+                            </a>
 
-</div>
+                        </div>
 
-</form>
+                    </form>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-<footer class="footer">
+        <footer class="footer">
 
-<div class="container text-center">
+            <div class="container text-center">
 
-<p class="mb-0">
+                <p class="mb-0">
 
-© 2026 Ecommerce - Administración
+                    © 2026 Ecommerce - Administración
 
-</p>
+                </p>
 
-</div>
+            </div>
 
-</footer>
+        </footer>
 
-<script src="<%=request.getContextPath()%>/scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="<%=request.getContextPath()%>/scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-</body>
+    </body>
 
-</html>
+    </html>

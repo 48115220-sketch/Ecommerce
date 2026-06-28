@@ -1,235 +1,215 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
 
-<head>
+    <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Administrar Usuarios</title>
+        <title>Administrar Usuarios</title>
 
-<link rel="stylesheet"
-href="<%=request.getContextPath()%>/scripts/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/scripts/bootstrap/css/bootstrap.min.css">
 
-<link rel="stylesheet"
-href="<%=request.getContextPath()%>/css/Style.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/css/Style.css">
 
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-<script src="<%=request.getContextPath()%>/scripts/jquery/jquery.min.js"></script>
+        <script src="<%=request.getContextPath()%>/scripts/jquery/jquery.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
+        <script>
 
-var contextPath = "<%=request.getContextPath()%>";
+            var contextPath = "<%=request.getContextPath()%>";
 
-</script>
+        </script>
 
-<script src="<%=request.getContextPath()%>/scripts/usuariosAdmin.js"></script>
+        <script src="<%=request.getContextPath()%>/scripts/usuariosAdmin.js"></script>
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-<!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-light menu-principal shadow-sm">
 
-<nav class="navbar navbar-expand-lg navbar-light menu-principal shadow-sm">
+            <div class="container">
 
-<div class="container">
+                <a class="navbar-brand" href="<%=request.getContextPath()%>/admin/admin.jsp">
 
-<a class="navbar-brand"
-href="<%=request.getContextPath()%>/admin/admin.jsp">
+                    <img src="<%=request.getContextPath()%>/img/logo.png" class="logo-navbar">
 
-<img src="<%=request.getContextPath()%>/img/logo.png"
-class="logo-navbar">
+                </a>
 
-</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
 
-<button class="navbar-toggler"
-type="button"
-data-bs-toggle="collapse"
-data-bs-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
 
-<span class="navbar-toggler-icon"></span>
+                </button>
 
-</button>
+                <div class="collapse navbar-collapse" id="navbar">
 
-<div class="collapse navbar-collapse"
-id="navbar">
+                    <ul class="navbar-nav ms-auto">
 
-<ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
 
-<li class="nav-item">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/admin.jsp">
 
-<a class="nav-link"
-href="<%=request.getContextPath()%>/admin/admin.jsp">
+                                <i class="bi bi-speedometer2"></i>
 
-<i class="bi bi-speedometer2"></i>
+                                Panel
 
-Panel
+                            </a>
 
-</a>
+                        </li>
 
-</li>
+                        <li class="nav-item">
 
-<li class="nav-item">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/productosAdmin.jsp">
 
-<a class="nav-link"
-href="<%=request.getContextPath()%>/admin/productosAdmin.jsp">
+                                <i class="bi bi-box-seam"></i>
 
-<i class="bi bi-box-seam"></i>
+                                Productos
 
-Productos
+                            </a>
 
-</a>
+                        </li>
 
-</li>
+                        <li class="nav-item">
 
-<li class="nav-item">
+                            <a class="nav-link active" href="#">
 
-<a class="nav-link active"
-href="#">
+                                <i class="bi bi-people-fill"></i>
 
-<i class="bi bi-people-fill"></i>
+                                Usuarios
 
-Usuarios
+                            </a>
 
-</a>
+                        </li>
 
-</li>
+                    </ul>
 
-</ul>
+                </div>
 
-</div>
+            </div>
 
-</div>
+        </nav>
 
-</nav>
+        <section class="hero">
 
-<!-- HERO -->
+            <div class="container text-center">
 
-<section class="hero">
+                <h1>
 
-<div class="container text-center">
+                    <i class="bi bi-people-fill"></i>
 
-<h1>
+                    Administración de Usuarios
 
-<i class="bi bi-people-fill"></i>
+                </h1>
 
-Administración de Usuarios
+                <p>
 
-</h1>
+                    Visualice todos los usuarios registrados en el sistema.
 
-<p>
+                </p>
 
-Visualice todos los usuarios registrados en el sistema.
+            </div>
 
-</p>
+        </section>
 
-</div>
+        <div class="container my-5">
 
-</section>
+            <div class="card shadow-lg">
 
-<!-- TABLA -->
+                <div class="card-header text-white" style="background:#556a32;">
 
-<div class="container my-5">
+                    <div class="d-flex justify-content-between align-items-center">
 
-<div class="card shadow-lg">
+                        <h4 class="mb-0">
 
-<div class="card-header text-white"
-style="background:#556a32;">
+                            <i class="bi bi-person-lines-fill"></i>
 
-<div class="d-flex justify-content-between align-items-center">
+                            Usuarios Registrados
 
-<h4 class="mb-0">
+                        </h4>
 
-<i class="bi bi-person-lines-fill"></i>
+                        <span class="badge bg-light text-dark fs-6">
 
-Usuarios Registrados
+                            Solo lectura
 
-</h4>
+                        </span>
 
-<span class="badge bg-light text-dark fs-6">
+                    </div>
 
-Solo lectura
+                </div>
 
-</span>
+                <div class="card-body">
 
-</div>
+                    <div class="table-responsive">
 
-</div>
+                        <table class="table table-hover align-middle">
 
-<div class="card-body">
+                            <thead class="table-success">
 
-<div class="table-responsive">
+                                <tr>
 
-<table class="table table-hover align-middle">
+                                    <th width="10%">ID</th>
 
-<thead class="table-success">
+                                    <th width="30%">Nombre</th>
 
-<tr>
+                                    <th width="30%">Correo</th>
 
-<th width="10%">ID</th>
+                                    <th width="10%">Rol</th>
 
-<th width="30%">Nombre</th>
+                                    <th width="10%">Estado</th>
 
-<th width="30%">Correo</th>
+                                    <th width="10%">Acciones</th>
 
-<th width="10%">Rol</th>
+                                </tr>
 
-<th width="10%">Estado</th>
+                            </thead>
 
-<th width="10%">Acciones</th>
+                            <tbody id="tablaUsuarios">
 
-</tr>
+                                <tr>
 
-</thead>
+                                    <td colspan="6" class="text-center">
 
-<tbody id="tablaUsuarios">
+                                        Cargando usuarios...
 
-<tr>
+                                    </td>
 
-<td colspan="6" class="text-center">
+                                </tr>
 
-Cargando usuarios...
+                            </tbody>
 
-</td>
+                        </table>
 
-</tr>
+                    </div>
 
-</tbody>
+                </div>
 
-</table>
+            </div>
 
-</div>
+        </div>
 
-</div>
+        <footer class="footer">
 
-</div>
+            <div class="container text-center">
 
-</div>
+                <p class="mb-0">
 
-<footer class="footer">
+                    © 2026 Ecommerce - Panel de Administración
 
-<div class="container text-center">
+                </p>
 
-<p class="mb-0">
+            </div>
 
-© 2026 Ecommerce - Panel de Administración
+        </footer>
 
-</p>
+        <script src="<%=request.getContextPath()%>/scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-</div>
+    </body>
 
-</footer>
-
-<script src="<%=request.getContextPath()%>/scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
+    </html>

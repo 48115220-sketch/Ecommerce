@@ -9,13 +9,10 @@ function cargarUsuarios() {
     $.ajax({
 
         type: "GET",
-
         url: contextPath + "/usuarios",
-
         dataType: "json",
 
         success: function (usuarios) {
-
             mostrarUsuarios(usuarios);
 
         },
@@ -23,11 +20,8 @@ function cargarUsuarios() {
         error: function () {
 
             Swal.fire({
-
                 icon: "error",
-
                 title: "Error",
-
                 text: "No fue posible cargar los usuarios."
 
             });
@@ -70,17 +64,15 @@ function mostrarUsuarios(usuarios) {
             html += "<td>";
 
             if (usuario.rol != null && usuario.rol != "") {
-
                 html += usuario.rol;
 
             } else {
-
                 html += "Cliente";
 
             }
 
             html += "</td>";
-
+            
             html += "<td>";
 
             html += "<span class='badge bg-success'>Activo</span>";

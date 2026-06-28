@@ -32,8 +32,6 @@
 
     <body>
 
-        <!-- NAVBAR -->
-
         <nav class="navbar navbar-expand-lg navbar-light menu-principal shadow-sm">
 
             <div class="container">
@@ -110,8 +108,6 @@
 
         </nav>
 
-        <!-- HERO -->
-
         <section class="hero">
 
             <div class="container text-center">
@@ -133,8 +129,6 @@
             </div>
 
         </section>
-
-        <!-- CONTENIDO -->
 
         <div class="container my-5">
 

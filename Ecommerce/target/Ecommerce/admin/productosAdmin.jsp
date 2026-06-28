@@ -1,345 +1,297 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
 
-<head>
+    <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Administrar Productos</title>
+        <title>Administrar Productos</title>
 
-<link rel="stylesheet"
-href="<%=request.getContextPath()%>/scripts/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/scripts/bootstrap/css/bootstrap.min.css">
 
-<link rel="stylesheet"
-href="<%=request.getContextPath()%>/css/Style.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/css/Style.css">
 
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-<script src="<%=request.getContextPath()%>/scripts/jquery/jquery.min.js"></script>
+        <script src="<%=request.getContextPath()%>/scripts/jquery/jquery.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
-    var contextPath="<%=request.getContextPath()%>";
-</script>
+        <script>
+            var contextPath = "<%=request.getContextPath()%>";
+        </script>
 
-<script src="<%=request.getContextPath()%>/scripts/productosAdmin.js"></script>
+        <script src="<%=request.getContextPath()%>/scripts/productosAdmin.js"></script>
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-<!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-light menu-principal shadow-sm">
 
-<nav class="navbar navbar-expand-lg navbar-light menu-principal shadow-sm">
+            <div class="container">
 
-<div class="container">
+                <a class="navbar-brand" href="<%=request.getContextPath()%>/home/home.jsp">
 
-<a class="navbar-brand"
-href="<%=request.getContextPath()%>/home/home.jsp">
+                    <img src="<%=request.getContextPath()%>/img/logo.png" class="logo-navbar">
 
-<img src="<%=request.getContextPath()%>/img/logo.png"
-class="logo-navbar">
+                </a>
 
-</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
 
-<button class="navbar-toggler"
-type="button"
-data-bs-toggle="collapse"
-data-bs-target="#menu">
+                    <span class="navbar-toggler-icon"></span>
 
-<span class="navbar-toggler-icon"></span>
+                </button>
 
-</button>
+                <div class="collapse navbar-collapse" id="menu">
 
-<div class="collapse navbar-collapse"
-id="menu">
+                    <ul class="navbar-nav ms-auto">
 
-<ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
 
-<li class="nav-item">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/admin.jsp">
 
-<a class="nav-link"
-href="<%=request.getContextPath()%>/admin/admin.jsp">
+                                Panel Admin
 
-Panel Admin
+                            </a>
 
-</a>
+                        </li>
 
-</li>
+                        <li class="nav-item">
 
-<li class="nav-item">
+                            <a class="nav-link active" href="#">
 
-<a class="nav-link active"
-href="#">
+                                Productos
 
-Productos
+                            </a>
 
-</a>
+                        </li>
 
-</li>
+                    </ul>
 
-</ul>
+                </div>
 
-</div>
+            </div>
 
-</div>
+        </nav>
 
-</nav>
+        <section class="hero">
 
-<!-- TITULO -->
+            <div class="container text-center">
 
-<section class="hero">
+                <h1>
 
-<div class="container text-center">
+                    <i class="bi bi-box-seam"></i>
 
-<h1>
+                    Administración de Productos
 
-<i class="bi bi-box-seam"></i>
+                </h1>
 
-Administración de Productos
+                <p>
 
-</h1>
+                    Alta, modificación y eliminación de productos.
 
-<p>
+                </p>
 
-Alta, modificación y eliminación de productos.
+            </div>
 
-</p>
+        </section>
 
-</div>
+        <div class="container mt-5">
 
-</section>
+            <div class="d-flex justify-content-between align-items-center mb-4">
 
-<!-- BOTON NUEVO -->
+                <h3>Listado de Productos</h3>
 
-<div class="container mt-5">
+                <button class="btn btn-success" id="btnNuevo">
 
-<div class="d-flex justify-content-between align-items-center mb-4">
+                    <i class="bi bi-plus-circle"></i>
 
-<h3>Listado de Productos</h3>
+                    Nuevo Producto
 
-<button
-class="btn btn-success"
-id="btnNuevo">
+                </button>
 
-<i class="bi bi-plus-circle"></i>
+            </div>
 
-Nuevo Producto
+            <div class="card shadow">
 
-</button>
+                <div class="card-body">
 
-</div>
+                    <div class="table-responsive">
 
-<div class="card shadow">
+                        <table class="table table-hover align-middle">
 
-<div class="card-body">
+                            <thead class="table-success">
 
-<div class="table-responsive">
+                                <tr>
 
-<table class="table table-hover align-middle">
+                                    <th>ID</th>
 
-<thead class="table-success">
+                                    <th>Imagen</th>
 
-<tr>
+                                    <th>Título</th>
 
-<th>ID</th>
+                                    <th>Precio</th>
 
-<th>Imagen</th>
+                                    <th>Stock</th>
 
-<th>Título</th>
+                                    <th>Acciones</th>
 
-<th>Precio</th>
+                                </tr>
 
-<th>Stock</th>
+                            </thead>
 
-<th>Acciones</th>
+                            <tbody id="tablaProductos">
 
-</tr>
+                            </tbody>
 
-</thead>
+                        </table>
 
-<tbody id="tablaProductos">
+                    </div>
 
-</tbody>
+                </div>
 
-</table>
+            </div>
 
-</div>
+        </div>
 
-</div>
+        <div class="modal fade" id="modalProducto" tabindex="-1">
 
-</div>
+            <div class="modal-dialog modal-lg">
 
-</div>
+                <div class="modal-content">
 
-<!-- MODAL -->
+                    <div class="modal-header">
 
-<div class="modal fade"
-id="modalProducto"
-tabindex="-1">
+                        <h4>
 
-<div class="modal-dialog modal-lg">
+                            Producto
 
-<div class="modal-content">
+                        </h4>
 
-<div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal">
 
-<h4>
+                        </button>
 
-Producto
+                    </div>
 
-</h4>
+                    <div class="modal-body">
 
-<button
-type="button"
-class="btn-close"
-data-bs-dismiss="modal">
+                        <input type="hidden" id="idProducto">
 
-</button>
+                        <div class="row">
 
-</div>
+                            <div class="col-md-6 mb-3">
 
-<div class="modal-body">
+                                <label>
 
-<input
-type="hidden"
-id="idProducto">
+                                    Título
 
-<div class="row">
+                                </label>
 
-<div class="col-md-6 mb-3">
+                                <input type="text" id="titulo" class="form-control">
 
-<label>
+                            </div>
 
-Título
+                            <div class="col-md-6 mb-3">
 
-</label>
+                                <label>
 
-<input
-type="text"
-id="titulo"
-class="form-control">
+                                    Precio
 
-</div>
+                                </label>
 
-<div class="col-md-6 mb-3">
+                                <input type="number" id="precio" class="form-control">
 
-<label>
+                            </div>
 
-Precio
+                        </div>
 
-</label>
+                        <div class="mb-3">
 
-<input
-type="number"
-id="precio"
-class="form-control">
+                            <label>
 
-</div>
+                                Descripción
 
-</div>
+                            </label>
 
-<div class="mb-3">
+                            <textarea id="descripcion" rows="4" class="form-control">
 
-<label>
+                         </textarea>
 
-Descripción
+                        </div>
 
-</label>
+                        <div class="row">
 
-<textarea
-id="descripcion"
-rows="4"
-class="form-control">
+                            <div class="col-md-6 mb-3">
 
-</textarea>
+                                <label>
 
-</div>
+                                    Stock
 
-<div class="row">
+                                </label>
 
-<div class="col-md-6 mb-3">
+                                <input type="number" id="stock" class="form-control">
 
-<label>
+                            </div>
 
-Stock
+                            <div class="col-md-6 mb-3">
 
-</label>
+                                <label>
 
-<input
-type="number"
-id="stock"
-class="form-control">
+                                    URL Imagen
 
-</div>
+                                </label>
 
-<div class="col-md-6 mb-3">
+                                <input type="text" id="urlImagen" class="form-control">
 
-<label>
+                            </div>
 
-URL Imagen
+                        </div>
 
-</label>
+                    </div>
 
-<input
-type="text"
-id="urlImagen"
-class="form-control">
+                    <div class="modal-footer">
 
-</div>
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">
 
-</div>
+                            Cancelar
 
-</div>
+                        </button>
 
-<div class="modal-footer">
+                        <button class="btn btn-success" id="btnGuardar">
 
-<button
-class="btn btn-secondary"
-data-bs-dismiss="modal">
+                            Guardar
 
-Cancelar
+                        </button>
 
-</button>
+                    </div>
 
-<button
-class="btn btn-success"
-id="btnGuardar">
+                </div>
 
-Guardar
+            </div>
 
-</button>
+        </div>
 
-</div>
+        <footer class="footer mt-5">
 
-</div>
+            <div class="container text-center">
 
-</div>
+                <p class="mb-0">
 
-</div>
+                    © 2026 Ecommerce - Panel Administrador
 
-<footer class="footer mt-5">
+                </p>
 
-<div class="container text-center">
+            </div>
 
-<p class="mb-0">
+        </footer>
 
-© 2026 Ecommerce - Panel Administrador
+        <script src="<%=request.getContextPath()%>/scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-</p>
+    </body>
 
-</div>
-
-</footer>
-
-<script src="<%=request.getContextPath()%>/scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
+    </html>

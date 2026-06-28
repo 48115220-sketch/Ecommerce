@@ -11,45 +11,42 @@ import org.apache.catalina.webresources.StandardRoot;
 
 public class Main {
 
-	 public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
 
-	        String webappDirLocation = "src/main/webapp/";
-	        Tomcat tomcat = new Tomcat();
-	        String webPort = System.getenv("PORT");
+        String webappDirLocation = "src/main/webapp/";
+        Tomcat tomcat = new Tomcat();
+        String webPort = System.getenv("PORT");
 
-	        if(webPort == null || webPort.isEmpty()) {
-	          webPort = "8080";
-	        }
+        if (webPort == null || webPort.isEmpty()) {
+            webPort = "8080";
+        }
 
-	        tomcat.setPort(Integer.valueOf(webPort));
-	        StandardContext ctx = (StandardContext) tomcat.addWebapp("", new
-	        File(webappDirLocation).getAbsolutePath());
+        tomcat.setPort(Integer.valueOf(webPort));
+        StandardContext ctx = (StandardContext) tomcat.addWebapp("/Ecommerce", new File(webappDirLocation).getAbsolutePath());
+        System.out.println("configuring app with basedir: " + new File("./"
+                + webappDirLocation).getAbsolutePath());
 
-	        System.out.println("configuring app with basedir: " + new File("./" +
-	        webappDirLocation).getAbsolutePath());
+        File additionWebInfClasses = new File("target/classes");
 
-	        File additionWebInfClasses = new File("target/classes");
+        WebResourceRoot resources = new StandardRoot(ctx);
 
-	        WebResourceRoot resources = new StandardRoot(ctx);
+        resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes",
+                additionWebInfClasses.getAbsolutePath(), "/"));
 
-	        resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes",
+        ctx.setResources(resources);
 
-	        additionWebInfClasses.getAbsolutePath(), "/"));
+        tomcat.enableNaming();
 
-	        ctx.setResources(resources);
+        tomcat.getConnector();
 
-	        tomcat.enableNaming();
+        try {
+            tomcat.start();
+            tomcat.getConnector();
+        } catch (LifecycleException e) {
+            e.printStackTrace();
+        }
+        tomcat.getServer().await();
 
-	        tomcat.getConnector();
-
-	        try {
-	          tomcat.start();
-	        } catch (LifecycleException e) {
-	          e.printStackTrace();
-	        }
-	        tomcat.getServer().await();
-
-	    }
-
+    }
 
 }

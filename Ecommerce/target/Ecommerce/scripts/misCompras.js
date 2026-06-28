@@ -17,7 +17,6 @@ function solicitarUsuario() {
         inputPlaceholder: "ID Usuario",
 
         confirmButtonText: "Consultar",
-
         confirmButtonColor: "#556a32",
 
         allowOutsideClick: false,
@@ -35,7 +34,6 @@ function solicitarUsuario() {
     }).then((result) => {
 
         if (result.isConfirmed) {
-
             cargarCompras(result.value);
 
         }
@@ -49,7 +47,6 @@ function cargarCompras(idUsuario) {
     Swal.fire({
 
         title: "Cargando compras...",
-
         allowOutsideClick: false,
 
         didOpen: () => {
@@ -63,13 +60,10 @@ function cargarCompras(idUsuario) {
     $.ajax({
 
         type: "POST",
-
         url: contextPath + "/compra",
-
         data: {
 
             accion: "listar",
-
             idUsuario: idUsuario
 
         },
@@ -79,7 +73,6 @@ function cargarCompras(idUsuario) {
         success: function (compras) {
 
             Swal.close();
-
             mostrarCompras(compras);
 
         },
@@ -89,9 +82,7 @@ function cargarCompras(idUsuario) {
             Swal.fire({
 
                 icon: "error",
-
                 title: "Error",
-
                 text: "No fue posible cargar las compras."
 
             });
@@ -123,19 +114,15 @@ function mostrarCompras(compras) {
             let estado = "";
 
             if (compra.estado === "PENDIENTE") {
-
                 estado = "<span class='badge bg-warning text-dark'>Pendiente</span>";
 
             } else if (compra.estado === "ENTREGADO") {
-
                 estado = "<span class='badge bg-success'>Entregado</span>";
 
             } else if (compra.estado === "CANCELADO") {
-
                 estado = "<span class='badge bg-danger'>Cancelado</span>";
 
             } else {
-
                 estado = "<span class='badge bg-secondary'>" + compra.estado + "</span>";
 
             }
@@ -177,7 +164,6 @@ function mostrarCompras(compras) {
 function formatearFecha(fecha) {
 
     if (!fecha) {
-
         return "-";
 
     }
@@ -185,11 +171,8 @@ function formatearFecha(fecha) {
     let d = new Date(fecha);
 
     return d.toLocaleDateString("es-AR", {
-
         day: "2-digit",
-
         month: "2-digit",
-
         year: "numeric"
 
     });
