@@ -49,5 +49,5 @@ VALUES ("Admin", "General", "admin@ecommerce.com", "123456", "ADMINISTRADOR");
 
 INSERT INTO Productos (Url_imagen, Titulo, Fecha_public, Stock, Descripcion, Caracteristicas, Precio)
 VALUES 
-('https://picsum.photos/id/26/600/600', 'Kit de Oficina "Tech & Style"', '2026-06-28', 15, 'Combo premium para desarrolladores. Incluye auriculares de estudio, gafas de sol con filtro UV, reloj analógico y accesorios de organización.', 'Edición Limitada Devs, Color Negro Mate', 18900.00),
-('https://picsum.photos/id/119/600/600', 'Laptop Pro Workstation 15"', '2026-06-28', 8, 'Estación de trabajo ultradelgada optimizada para entornos Docker, compilación en Tomcat y desarrollo Java empresarial.', 'Aluminio anodizado, 32GB RAM, SSD 1TB', 145000.50);
+('https://picsum.photos/id/26/600/600', 'Kit de Oficina "Tech & Style"', '2026-06-28', 15, 'Combo premium para desarrolladores. Incluye auriculares de estudio, gafas de sol con filtro UV, reloj  y accesorios.', 'Edicion Limitada Devs, Color Negro Mate', 18900.00),
+('https://picsum.photos/id/119/600/600', 'Laptop Pro Workstation 15', '2026-06-28', 8, 'Estacion de trabajo ultradelgada optimizada para entornos Docker, compilacion en Tomcat y desarrollo Java empresarial.', 'Aluminio anodizado, 32GB RAM, SSD 1TB', 145000.50);
